@@ -33,11 +33,11 @@ public class PlayerMove02 : MonoBehaviour
         {
            playerRigidbody.velocity = new Vector3(0f, 0f, 0f);
         }
-        if (transform.position.x-1f <= otherGameObject.transform.localScale.x / 2*-1 && xSpeed < 0)
+        if (transform.position.x-0.5f <= otherGameObject.transform.localScale.x / 2*-1 && xSpeed < 0)
         {
             playerRigidbody.velocity = new Vector3(0f, 0f, 0f);
         }
-        if (transform.position.z +1f >= otherGameObject.transform.localScale.y / 2  && zSpeed > 0)
+        if (transform.position.z +0.5f >= otherGameObject.transform.localScale.y / 2  && zSpeed > 0)
         {
             playerRigidbody.velocity = new Vector3(0f, 0f, 0f);
         }

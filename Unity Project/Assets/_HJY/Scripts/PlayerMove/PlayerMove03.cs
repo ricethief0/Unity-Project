@@ -30,6 +30,7 @@ public class PlayerMove03 : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         Vector3 dir = Vector3.right * h + Vector3.forward * v;
+        // 위에 꺼랑 같은 말, Vector3 dir = new Vector3(h,0,v);
 
         Vector3 movePosition = transform.position + dir.normalized * speed * Time.deltaTime;
         movePosition.x = Mathf.Clamp(movePosition.x, -cameraWidth + playerHalfWidth, cameraWidth - playerHalfWidth);

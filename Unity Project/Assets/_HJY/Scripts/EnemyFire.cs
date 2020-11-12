@@ -13,13 +13,10 @@ public class EnemyFire : MonoBehaviour
     float fireTime;
     float curTime = 0f;
 
-    List<int> abs;
+   
     void Start()
     {
-        abs.Add(1);
-        abs.Add(2);
-        abs.Add(3);
-        print(abs[2]);
+        
 
         fireTime = Random.Range(fireTimeMin, fireTimeMax);
     }

@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
         if(curTime >appearTime)
         {
             GameObject enemy = Instantiate(enemyPrefab);
-            float halfWidth = enemy.transform.localScale.x / 2;
+            float halfWidth = enemy.transform.localScale.x *0.5f;
             enemy.transform.position = new Vector3(Random.Range(-cameraWidth + halfWidth, cameraWidth - halfWidth), 
                 enemy.transform.position.y, enemy.transform.position.z) ;
             appearTime = Random.Range(appearTimeMin, appearTimeMax);

@@ -34,11 +34,10 @@ public class Enemy : MonoBehaviour
     {
 
         // 자기 자신도 없개오 충돌된 오브젝트도 없앤다. 
-        if (collision.gameObject.tag != "EnemyBullet")
-        {
+       
             Destroy(gameObject);
             Destroy(collision.gameObject); // collision 된 게임오브젝트를 제거   
-        }
+        
 
     }
 

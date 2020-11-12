@@ -21,7 +21,7 @@ public class Player_study : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 dir = new Vector3(h, 0, v);
+        Vector3 dir = new Vector3(h, 0f, v);
 
         transform.Translate(dir * Time.deltaTime * speed);
            

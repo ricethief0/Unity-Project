@@ -5,9 +5,11 @@ using UnityEngine;
 public class BossFire : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject target;
     [SerializeField] float atkTimeMin = 1f;
     [SerializeField] float atkTimeMax = 3f;
     [SerializeField] int hp;
+    [SerializeField] int bulletCount;
     float atkTime;
     float curTime = 0f;
 
@@ -21,23 +23,50 @@ public class BossFire : MonoBehaviour
     void Update()
     {
         curTime += Time.deltaTime;
-        if(curTime >= atkTime)
+        if (curTime >= atkTime)
         {
-            
-            for(int i=1; i<= 36; i++)
+            if (target != null)
             {
-                GameObject bullet = Instantiate(bulletPrefab);
-                bullet.transform.position = transform.position;
-                bullet.transform.rotation = Quaternion.Euler(Vector3.up * 10*i); 
+                if (Random.Range(0, 2) == 0)
+                    fire01();
+                else
+                    fire02();
             }
             
-
-            curTime = 0f;
-            atkTime = Random.Range(atkTimeMin, atkTimeMax);
-
         }
     }
 
+    private void fire02()
+    {
+       
+
+            for (int i = 1; i <= bulletCount; i++)
+            {
+                GameObject bullet = Instantiate(bulletPrefab);
+                bullet.transform.position = transform.position;
+                bullet.transform.rotation = Quaternion.Euler(Vector3.up * 360/bulletCount * i);
+            }
+
+        curTime = 0f;
+        atkTime = Random.Range(atkTimeMin, atkTimeMax);
+
+
+
+    }
+
+    private void fire01()
+    {
+        GameObject bullet = Instantiate(bulletPrefab);
+        bullet.transform.position = transform.position;
+    
+        Vector3 dir = target.transform.position - bullet.transform.position;
+        dir.Normalize();
+        bullet.transform.rotation = Quaternion.Euler(dir);
+        bullet.transform.forward = dir;
+        curTime = 0f;
+        atkTime = Random.Range(atkTimeMin, atkTimeMax);
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {

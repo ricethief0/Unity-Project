@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  fxfactory: {fileID: 1892078723244562, guid: d9fe6a13381bd2f4fbcdb08bb018a2f2, type: 3}
 --- !u!54 &5995862869813396426
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -100,9 +101,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5995862869813396401}
     m_Modifications:
+    - target: {fileID: 1223473052968074, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508734977801910, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528797578046954, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799981609980374, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865462502189246, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1917106948373238, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
       propertyPath: m_Name
       value: Enemy_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917106948373238, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4288594156929110, guid: 016a457952b8af04992b1834e0ae00be, type: 3}
       propertyPath: m_LocalPosition.x

@@ -23,6 +23,7 @@ public class BossBullet : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            SceneMgr.Instance.LoadScene("StartScene");
         }
     }
 

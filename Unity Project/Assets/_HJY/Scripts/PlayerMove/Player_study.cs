@@ -9,6 +9,8 @@ public class Player_study : MonoBehaviour
 
     public Vector2 margin; // 뷰포트좌표는 (0,0) ~ (1,1) 사이의 값을 사용한다.
     // Start is called before the first frame update
+
+    public VariableJoystick joystick;
     void Start()
     {
         
@@ -20,6 +22,16 @@ public class Player_study : MonoBehaviour
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+
+
+        //조이스틱 사용하기
+        //키보드가 안눌렸을때 => 조이스틱 사용하면 된다. 
+        if(h==0&&v==0)
+        {
+            h = joystick.Horizontal;
+            v = joystick.Vertical;
+        }
+
 
         Vector3 dir = new Vector3(h, 0f, v);
 

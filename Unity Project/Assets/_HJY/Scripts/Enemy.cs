@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float speed = 5f; //enemy move speed;
 
+    public GameObject fxfactory;
 
     
 
@@ -33,12 +35,33 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        // 자기 자신도 없개오 충돌된 오브젝트도 없앤다. 
+        // 자기 자신도 없애고 충돌된 오브젝트도 없앤다. 
        
-            Destroy(gameObject);
-            Destroy(collision.gameObject); // collision 된 게임오브젝트를 제거   
         
+        Destroy(gameObject);
+        if(collision.gameObject.tag == "Bullet")    
+        {
+            collision.gameObject.SetActive(false);
+            PlayerFire pf = GameObject.Find("Player").GetComponent<PlayerFire>();
+            pf.bulletPool.Enqueue(collision.gameObject);
+        }
+        else
+        { 
+            Destroy(collision.gameObject); // collision 된 게임오브젝트를 제거  
+            SceneMgr.Instance.LoadScene("StartScene");
+        }
+       
+        
+        ShowEffect();
 
+        ScoreManager.Instance.AddScore();
+       
+    }
+
+    private void ShowEffect()
+    {
+        GameObject fx = Instantiate(fxfactory);
+        fx.transform.position = transform.position;
     }
 
     private void OnBecameInvisible()

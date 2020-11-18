@@ -31,6 +31,7 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            SceneMgr.Instance.LoadScene("StartScene");
         }
 
     }

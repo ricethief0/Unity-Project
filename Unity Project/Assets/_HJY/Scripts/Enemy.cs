@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         else
         { 
             Destroy(collision.gameObject); // collision 된 게임오브젝트를 제거  
-            SceneMgr.Instance.LoadScene("StartScene");
+            SceneMgr.Instance.LoadScene("EndScene");
         }
        
         

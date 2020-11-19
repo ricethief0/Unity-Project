@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake() => Instance = this;
     public Text scoreText;
     public Text hiScoreText;
-    public TextMeshProUGUI textTxt; //TMP text 변수
+    //public TextMeshProUGUI textTxt; //TMP text 변수
 
     int score = 0;
     int hiScore = 0;
@@ -46,6 +46,6 @@ public class ScoreManager : MonoBehaviour
         score++;
         scoreText.text = "Score : " + score;
 
-        textTxt.text = "TMPtst!!!";
+    
     }
 }

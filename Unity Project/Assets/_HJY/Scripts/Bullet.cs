@@ -47,8 +47,11 @@ public class Bullet : MonoBehaviour
         //총알 오브젝트는 비활성화시킨다.
 
         gameObject.SetActive(false);
-        PlayerFire playerFire = GameObject.Find("Player").GetComponent<PlayerFire>(); //컴포넌트만 받아올수도있음.
-        playerFire.bulletPool.Enqueue(gameObject);
+        if (GameObject.Find("Player") != null)
+        {
+            PlayerFire playerFire = GameObject.Find("Player").GetComponent<PlayerFire>(); //컴포넌트만 받아올수도있음.
+            playerFire.bulletPool.Enqueue(gameObject);
+        }
     
     
     }   

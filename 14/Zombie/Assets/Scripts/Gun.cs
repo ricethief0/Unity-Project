@@ -45,6 +45,7 @@ public class Gun : MonoBehaviour {
         bulletLineRenderer.positionCount = 2;
 
         bulletLineRenderer.enabled = false;
+        
     }
 
     private void OnEnable() {
@@ -136,10 +137,20 @@ public class Gun : MonoBehaviour {
     private IEnumerator ReloadRoutine() {
         // 현재 상태를 재장전 중 상태로 전환
         state = State.Reloading;
-        
+
+        gunAudioPlayer.PlayOneShot(reloadClip);
+
         // 재장전 소요 시간 만큼 처리를 쉬기
         yield return new WaitForSeconds(reloadTime);
 
+        int ammoToFill = magCapacity - magAmmo; // 채워야할 양 (용량 - 차있는 수)
+
+        if (ammoRemain < ammoToFill)
+            ammoToFill = ammoRemain;
+
+        magAmmo += ammoToFill;
+
+        ammoRemain -= ammoToFill;
         // 총의 현재 상태를 발사 준비된 상태로 변경
         state = State.Ready;
     }
